@@ -1,23 +1,17 @@
 package io.github.philliptwl.textrpg_spring;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.springframework.stereotype.Component;
 
-@Entity
-@Getter
-@Setter
-@NoArgsConstructor
+@Component
+@Data
+@AllArgsConstructor
 public class Restore implements Ability{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
     private final String name = "Restore";
     private final double restore = 50.0;
+
     @Override
     public String type() {
         return "heal";

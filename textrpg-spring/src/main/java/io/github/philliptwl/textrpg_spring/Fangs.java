@@ -1,28 +1,19 @@
 package io.github.philliptwl.textrpg_spring;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.springframework.stereotype.Component;
 
-@Entity
-@Getter
-@Setter
+@Component
+@Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class Fangs implements Weapon{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
     private String name;
     private double damage;
 
-    public Fangs(String name, double damage) {
-        this.name = name;
-        this.damage = damage;
-    }
     @Override
     public String name() {
         return name;

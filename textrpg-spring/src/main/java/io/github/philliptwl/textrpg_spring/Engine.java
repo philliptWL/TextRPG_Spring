@@ -21,7 +21,7 @@ public class Engine{
         logo();
         gameIntro();
 
-        //io.github.philliptwl.textrpg_spring.RPGCharacter creation
+        //RPGCharacter creation
         RPGCharacter player = createCharacter(scan);
         postCharacterCreation(player);
 
@@ -71,7 +71,6 @@ public class Engine{
         scan.close();
     }
 
-
     private static boolean isGameOver(RPGCharacter player, Scanner scan, boolean override) {
 
         if(player.isDead()){
@@ -111,18 +110,18 @@ public class Engine{
             switch (response) {
                 case 1: //io.github.philliptwl.textrpg_spring.Barbarian
                     name = namePlayerCharacter(scan,"Barbarian");
-                    player = new RPGCharacter(name ,new Barbarian(115.0, chooseSword(name,scan),100,
-                            new Charge()),startLevel,false);
+                    player = new RPGCharacter(name , false, new Barbarian(115.0, chooseSword(name,scan),100,
+                                                new Charge()), startLevel);
                     break;
                 case 2: //io.github.philliptwl.textrpg_spring.Ranger
                     name = namePlayerCharacter(scan,"Ranger");
-                    player =  new RPGCharacter(name,new Ranger(110.0,chooseBow(name,scan),110,
-                            new Evade()),startLevel,false);
+                    player =  new RPGCharacter(name, false, new Ranger(110.0,chooseBow(name,scan),110,
+                                                new Evade()), startLevel);
                     break;
                 case 3: //io.github.philliptwl.textrpg_spring.Mage
                     name = namePlayerCharacter(scan,"Mage");
-                    player =  new RPGCharacter(name,new Mage(100.0,chooseStaff(name,scan),115,
-                            new Restore()),startLevel,false);
+                    player =  new RPGCharacter(name, false, new Mage(100.0,chooseStaff(name,scan),115,
+                                                new Restore()), startLevel);
                     break;
                 default:
                     optInvalid("character class");
@@ -440,9 +439,9 @@ public class Engine{
 
         switch (path.get(0)) {
             case "Whispering Fields":
-                enemy = new RPGCharacter("Giant Ash-Wolf",new Enemy(70.0,new Fangs(
-                        "Razor-Sharp Fangs", 12.0),50, new Evade()),1,false
-                );
+                enemy = new RPGCharacter("Giant Ash-Wolf", false, new Enemy(70.0,new Fangs(
+                                        "Razor-Sharp Fangs", 12.0),50, new Evade()), 1
+                                );
 
                 typeOut("""
                         Silver grass brushes your knees as you step into the Whispering Fields.
@@ -467,9 +466,9 @@ public class Engine{
                 break;
 
             case "Embercross":
-                enemy = new RPGCharacter("Ember Knight",new Enemy(75.0,new Sword(
-                        "Rusted Ember Sword",13.0),50, new Charge()),1,false
-                );
+                enemy = new RPGCharacter("Ember Knight", false, new Enemy(75.0,new Sword(
+                                        "Rusted Ember Sword",13.0),50, new Charge()), 1
+                                );
                 typeOut(String.format("""
                         The Old Road unwinds like a scar. Milestones lean; cart tracks vanish into ash.
                         
@@ -563,9 +562,9 @@ public class Engine{
 
         switch (path.get(1)) {
             case "River Ford":
-                enemy = new RPGCharacter("Cinder Serpent",new Enemy(65.0, new Fangs("Ember Fangs",
-                        14.0), 60, new Evade()),2, false
-                );
+                enemy = new RPGCharacter("Cinder Serpent", false, new Enemy(65.0, new Fangs("Ember Fangs",
+                                        14.0), 60, new Evade()), 2
+                                );
 
                 typeOut(String.format("""
                         You head down to the River Ford, overcome with a heavy scent of sulfur and scalding steam.
@@ -586,9 +585,9 @@ public class Engine{
 
                 break;
             case "Sunken Shrine":
-                enemy = new RPGCharacter("Ash Wraith",new Enemy(55.0, new Sword("Spectral Scythe",
-                        14.0), 80, new Evade()),2, false
-                );
+                enemy = new RPGCharacter("Ash Wraith", false, new Enemy(55.0, new Sword("Spectral Scythe",
+                                        14.0), 80, new Evade()), 2
+                                );
 
                 typeOut(String.format("""
                         You descend into the Sunken Shrine, wary of the horrors that lurk in this holy place.
@@ -609,9 +608,9 @@ public class Engine{
 
                 break;
             case "Shattered Aqueduct":
-                enemy = new RPGCharacter("Gutter Ghoul",new Enemy(62.0, new Fangs("Filth-Slick Claws",
-                        13.0), 60, new Evade()), 2, false
-                );
+                enemy = new RPGCharacter("Gutter Ghoul", false, new Enemy(62.0, new Fangs("Filth-Slick Claws",
+                                        13.0), 60, new Evade()), 2
+                                );
 
                 typeOut(String.format("""
                         The old aqueduct looms in broken ribs over the road.
@@ -634,9 +633,9 @@ public class Engine{
 
                 break;
             case "Cinder Orchard":
-                enemy = new RPGCharacter("Cinder Treant",new Enemy(80.0, new Fangs("Charred Limbs",
-                        16.0), 50, new Charge()),2, false
-                );
+                enemy = new RPGCharacter("Cinder Treant", false, new Enemy(80.0, new Fangs("Charred Limbs",
+                                        16.0), 50, new Charge()), 2
+                                );
 
                 typeOut(String.format("""
                         You venture into the Cinder Orchard leaving Embercross to fade in the ash.
@@ -794,10 +793,10 @@ public class Engine{
 
         switch (path.get(2)) {
             case "Cinder Court":
-                enemy = new RPGCharacter("Ash Cantor", new Enemy(88.0,
-                        new Staff("Cinder Crozier", 17.0), 120, new Evade()), 3,
-                        false
-                );
+                enemy = new RPGCharacter("Ash Cantor", false, new Enemy(88.0,
+                                        new Staff("Cinder Crozier", 17.0), 120, new Evade()),
+                        3
+                                );
                 typeOut(String.format("""
                         You step into the Cinder Court, a blasted garden of black statues and soot-pale shrubs.
                         
@@ -815,10 +814,10 @@ public class Engine{
 
                 break;
             case "Funeral Stair":
-                enemy = new RPGCharacter("Pyre Castellan",new Enemy(100.0,
-                        new Sword("Branding Halberd", 19.0), 90, new Charge()), 3,
-                        false
-                );
+                enemy = new RPGCharacter("Pyre Castellan", false, new Enemy(100.0,
+                                        new Sword("Branding Halberd", 19.0), 90, new Charge()),
+                        3
+                                );
                 typeOut(String.format("""
                         You climb the Funeral Stair; broad steps mantled in ash, lanterns guttering in iron niches.
                         
@@ -904,10 +903,10 @@ public class Engine{
         String weapon = rPlayer.getWeapon().name();
 
          RPGCharacter theAshKing = new RPGCharacter(
-                 villain,
-                 new Enemy(200.0, new Sword("Crownblade", 22.0), 120, new Charge()),
-                 4, false
-         );
+                          villain,
+                 false,
+                 new Enemy(200.0, new Sword("Crownblade", 22.0), 120, new Charge()), 4
+                  );
 
         typeOut("""
                 You heave open the Obsidian Gates and approach the castle, its spires clawing at an ashen sky.
@@ -1004,144 +1003,142 @@ public class Engine{
         RPGCharacter victor = null;
 
         while(!enemy.isDead() && !player.isDead()) {
-            if(!player.isDead()) {
-                dodge = false;
-                //Status
-                viewStatus(player, enemy, rEnemy, rPlayer);
-                //Menu
-                menu(new String[]{rPlayer.useWeapon() + " | DMG: " + String.format("%.2f",rPlayer.getWeapon().damage()),
-                        rPlayer.getAbility().getName() + " | RESOURCE COST: " + rPlayer.getAbility().cost()}, false);
+            dodge = false;
+            //Status
+            viewStatus(player, enemy, rEnemy, rPlayer);
+            //Menu
+            menu(new String[]{rPlayer.useWeapon() + " | DMG: " + String.format("%.2f",rPlayer.getWeapon().damage()),
+                    rPlayer.getAbility().getName() + " | RESOURCE COST: " + rPlayer.getAbility().cost()}, false);
 
-                int response = scan.nextInt();
-                boolean moveEnemy = moveEnemyRandom();
+            int response = scan.nextInt();
+            boolean moveEnemy = moveEnemyRandom();
 
-                //Action Choice
-                switch (response) {
-                    case 1: //Use io.github.philliptwl.textrpg_spring.Weapon
-                        if (moveEnemy && rEnemy.getAbility().type().equals("evasion")){
-                            typeOut(String.format("""
-                                    %s evades your attack!
-                                    """,enemy.getName()),25);
-                        }else {
-                            rEnemy.setHealth(rEnemy.getHealth() - rPlayer.getWeapon().damage());
-                            typeOut(String.format("""
-                                    You %s!
-                                    
-                                    You strike %s with %s, for %.2f damage!
-                                    """,rPlayer.getWeapon().attackType(),enemy.getName(), weapon, rPlayer.getWeapon().damage()), 25);
-                        }
-                        break;
-
-                    case 2: //Use io.github.philliptwl.textrpg_spring.Ability
-                        if(rPlayer.getResource() >= rPlayer.getAbility().cost()) {
-                            switch (rPlayer.getAbility().type()) {
-                                case "damage":
-                                    rPlayer.setResource(rPlayer.useAbility());
-                                    if (moveEnemy && rEnemy.getAbility().type().equals("evasion")){
-                                        typeOut(String.format("""
-                                                %s evades your %s!
-                                                
-                                                Your rage builds...
-                                                """,enemy.getName(),rPlayer.getAbility().getName())
-                                                ,25);
-                                    }else {
-                                        rEnemy.setHealth(rPlayer.getWeapon().useWeapon(rEnemy.getHealth()));
-                                        typeOut(String.format("""
-                                                You charge %s head first and strike them in the chest knocking them back!
-                                                
-                                                Your rage is sated, for now...
-                                                """,enemy.getName()),25);
-                                    }
-                                    break;
-                                case "evasion":
-                                    rPlayer.setResource(rPlayer.useAbility());
-                                    if (moveEnemy && rEnemy.getAbility().type().equals("evasion")){
-                                        typeOut("""
-                                                Your foe matches your attempt to evade the other's attack.
-                                                
-                                                They seem cunning...
-                                                """,25);
-                                    }else{
-                                        typeOut(String.format("""
-                                                You evade %s's attack!
-                                                
-                                                Your speed and cunning have no equal...
-                                                """,enemy.getName()),25);
-
-                                    }
-                                    dodge =  true;
-                                    break;
-                                case "heal":
-                                    rPlayer.setResource(rPlayer.useAbility());
-                                    if (rPlayer.getHealth() >= 90.0) {
-                                        typeOut("""
-                                                Your attempt to heal beyond your capacity fails, a foolish endeavor no doubt...
-                                                """, 25);
-                                    } else {
-                                        rPlayer.setHealth(rPlayer.getHealth() + rPlayer.getAbility().getHeal());
-                                        typeOut(String.format("""
-                                                You use the aether to restore your life-force and mend your wounds!
-                                                
-                                                You heal for %.2f and feel the energy flow within your veins...
-                                                """,rPlayer.getAbility().getHeal()),25);
-                                    }
-                                    break;
-                                default:
-                                    optInvalid("combat option");
-                            }
-                        }else {
-                            typeOut("""
-                                    You have exhausted yourself! Your vision swims and your reserves run dry.
-                                    
-                                    You cannot use that ability right now...
-                                    """,25);
-                        }
-                }
-                if(rEnemy.getHealth() <= 0) {
-                    enemy.setDead(true);
-                    victor = player;
-                    break;
-                }
-                if(!dodge) {
-                    if (enemyHitChance()) {
-                        if (!moveEnemy) {
-                            rPlayer.setHealth(rEnemy.getWeapon().useWeapon(rPlayer.getHealth()));
-                            typeOut(String.format("""
-                                    %s strikes with %s!
-                                    
-                                    The attack hits! You lose %.2f of your life-force.
-                                    """, enemy.getName(), rEnemy.getWeapon().name(), rEnemy.getWeapon().damage()), 25);
-                        }
-                        if (moveEnemy && rEnemy.getAbility().type().equals("damage")) {
-                            rPlayer.setHealth(rPlayer.getHealth() - rEnemy.getAbility().getDamage());
-                            typeOut(String.format("""
-                                    %s charges at you with hatred in their eyes!
-                                    
-                                    The attack hits! You lose %.2f of your life-force.
-                                    """, enemy.getName(), rEnemy.getAbility().getDamage()), 25);
-                        }
-                    } else {
+            //Action Choice
+            switch (response) {
+                case 1: //Use io.github.philliptwl.textrpg_spring.Weapon
+                    if (moveEnemy && rEnemy.getAbility().type().equals("evasion")){
                         typeOut(String.format("""
-                                %s misses their attack!
+                                %s evades your attack!
+                                """,enemy.getName()),25);
+                    }else {
+                        rEnemy.setHealth(rEnemy.getHealth() - rPlayer.getWeapon().damage());
+                        typeOut(String.format("""
+                                You %s!
                                 
-                                Fate smiles upon you, hero...
-                                """, enemy.getName()), 25);
+                                You strike %s with %s, for %.2f damage!
+                                """,rPlayer.getWeapon().attackType(),enemy.getName(), weapon, rPlayer.getWeapon().damage()), 25);
                     }
-                }
-                if (rPlayer.getHealth() <= 0) {
-                    typeOut(String.format("""
-                        %s strikes a fatal blow!
-                        
-                        You fall to your knees and drop %s at your side as the world turns dark...
-                        """,enemy.getName(),rPlayer.getWeapon().name()),25);
-                    player.setDead(true);
-                    victor = enemy;
                     break;
-                }else {
+
+                case 2: //Use io.github.philliptwl.textrpg_spring.Ability
+                    if(rPlayer.getResource() >= rPlayer.getAbility().cost()) {
+                        switch (rPlayer.getAbility().type()) {
+                            case "damage":
+                                rPlayer.setResource(rPlayer.useAbility());
+                                if (moveEnemy && rEnemy.getAbility().type().equals("evasion")){
+                                    typeOut(String.format("""
+                                            %s evades your %s!
+                                            
+                                            Your rage builds...
+                                            """,enemy.getName(),rPlayer.getAbility().getName())
+                                            ,25);
+                                }else {
+                                    rEnemy.setHealth(rPlayer.getWeapon().useWeapon(rEnemy.getHealth()));
+                                    typeOut(String.format("""
+                                            You charge %s head first and strike them in the chest knocking them back!
+                                            
+                                            Your rage is sated, for now...
+                                            """,enemy.getName()),25);
+                                }
+                                break;
+                            case "evasion":
+                                rPlayer.setResource(rPlayer.useAbility());
+                                if (moveEnemy && rEnemy.getAbility().type().equals("evasion")){
+                                    typeOut("""
+                                            Your foe matches your attempt to evade the other's attack.
+                                            
+                                            They seem cunning...
+                                            """,25);
+                                }else{
+                                    typeOut(String.format("""
+                                            You evade %s's attack!
+                                            
+                                            Your speed and cunning have no equal...
+                                            """,enemy.getName()),25);
+
+                                }
+                                dodge =  true;
+                                break;
+                            case "heal":
+                                rPlayer.setResource(rPlayer.useAbility());
+                                if (rPlayer.getHealth() >= 90.0) {
+                                    typeOut("""
+                                            Your attempt to heal beyond your capacity fails, a foolish endeavor no doubt...
+                                            """, 25);
+                                } else {
+                                    rPlayer.setHealth(rPlayer.getHealth() + rPlayer.getAbility().getHeal());
+                                    typeOut(String.format("""
+                                            You use the aether to restore your life-force and mend your wounds!
+                                            
+                                            You heal for %.2f and feel the energy flow within your veins...
+                                            """,rPlayer.getAbility().getHeal()),25);
+                                }
+                                break;
+                            default:
+                                optInvalid("combat option");
+                        }
+                    }else {
+                        typeOut("""
+                                You have exhausted yourself! Your vision swims and your reserves run dry.
+                                
+                                You cannot use that ability right now...
+                                """,25);
+                    }
+            }
+            if(rEnemy.getHealth() <= 0) {
+                enemy.setDead(true);
+                victor = player;
+                break;
+            }
+            if(!dodge) {
+                if (enemyHitChance()) {
+                    if (!moveEnemy) {
+                        rPlayer.setHealth(rEnemy.getWeapon().useWeapon(rPlayer.getHealth()));
+                        typeOut(String.format("""
+                                %s strikes with %s!
+                                
+                                The attack hits! You lose %.2f of your life-force.
+                                """, enemy.getName(), rEnemy.getWeapon().name(), rEnemy.getWeapon().damage()), 25);
+                    }
+                    if (moveEnemy && rEnemy.getAbility().type().equals("damage")) {
+                        rPlayer.setHealth(rPlayer.getHealth() - rEnemy.getAbility().getDamage());
+                        typeOut(String.format("""
+                                %s charges at you with hatred in their eyes!
+                                
+                                The attack hits! You lose %.2f of your life-force.
+                                """, enemy.getName(), rEnemy.getAbility().getDamage()), 25);
+                    }
+                } else {
                     typeOut(String.format("""
-                            You reset your stance and ready %s. Be wary of the next attack, hero...
-                            """, rPlayer.getWeapon().name()), 25);
+                            %s misses their attack!
+                            
+                            Fate smiles upon you, hero...
+                            """, enemy.getName()), 25);
                 }
+            }
+            if (rPlayer.getHealth() <= 0) {
+                typeOut(String.format("""
+                    %s strikes a fatal blow!
+                    
+                    You fall to your knees and drop %s at your side as the world turns dark...
+                    """,enemy.getName(),rPlayer.getWeapon().name()),25);
+                player.setDead(true);
+                victor = enemy;
+                break;
+            }else {
+                typeOut(String.format("""
+                        You reset your stance and ready %s. Be wary of the next attack, hero...
+                        """, rPlayer.getWeapon().name()), 25);
             }
         }
         return victor;
@@ -1259,6 +1256,7 @@ public class Engine{
     }
 
     public static void logo(){
+        System.out.println();
         typeOut("""
                        ▄████████    ▄████████    ▄█    █▄       ▄████████    ▄████████       ▄██████▄     ▄████████         ▄████████    ▄████████     ███        ▄█    █▄       ▄████████  ▄██████▄     ▄████████
                       ███    ███   ███    ███   ███    ███     ███    ███   ███    ███      ███    ███   ███    ███        ███    ███   ███    ███ ▀█████████▄   ███    ███     ███    ███ ███    ███   ███    ███

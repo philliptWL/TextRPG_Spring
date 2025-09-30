@@ -1,25 +1,18 @@
 package io.github.philliptwl.textrpg_spring;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+import org.springframework.stereotype.Component;
 
-@Entity
-@Getter
-@Setter
+@Component
+@Data
+@AllArgsConstructor
 @NoArgsConstructor
 public class Bow implements Weapon{
-    @Id
-    private Long id;
+
     private String name;
     private double damage;
-
-    public Bow(String name, double damage) {
-        this.name = name;
-        this.damage = damage;
-    }
 
     @Override
     public String name() {
