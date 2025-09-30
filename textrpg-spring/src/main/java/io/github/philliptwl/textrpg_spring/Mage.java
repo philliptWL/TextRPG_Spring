@@ -2,14 +2,16 @@ package io.github.philliptwl.textrpg_spring;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
+@EqualsAndHashCode(callSuper = true)
 @Component
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Mage implements Role {
+public class Mage extends Role {
 
     private double health;
     private Weapon weapon;

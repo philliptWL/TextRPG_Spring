@@ -2,12 +2,14 @@ package io.github.philliptwl.textrpg_spring;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.stereotype.Component;
 
+@EqualsAndHashCode(callSuper = true)
 @Component
 @Data
 @AllArgsConstructor
-public class Restore implements Ability{
+public class Restore extends Ability{
 
     private final String name = "Restore";
     private final double restore = 50.0;

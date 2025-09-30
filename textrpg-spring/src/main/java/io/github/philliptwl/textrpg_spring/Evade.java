@@ -2,12 +2,14 @@ package io.github.philliptwl.textrpg_spring;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.stereotype.Component;
 
+@EqualsAndHashCode(callSuper = true)
 @Component
 @Data
 @AllArgsConstructor
-public class Evade implements Ability {
+public class Evade extends Ability {
 
     private final String name = "Evade";
     private final double rate = 1.0;

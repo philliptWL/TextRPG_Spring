@@ -1,10 +1,10 @@
 package io.github.philliptwl.textrpg_spring;
 
-public interface Ability {
-    String type();
-    int cost();
-    String getName();
-    double getDamage();
-    double getHeal();
-    double getEvasion();
+public abstract class Ability {
+    abstract String type();
+    abstract int cost();
+    abstract String getName();
+    abstract double getDamage();
+    abstract double getHeal();
+    abstract double getEvasion();
 }

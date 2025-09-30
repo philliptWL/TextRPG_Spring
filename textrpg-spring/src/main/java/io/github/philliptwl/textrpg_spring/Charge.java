@@ -2,12 +2,14 @@ package io.github.philliptwl.textrpg_spring;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.stereotype.Component;
 
+@EqualsAndHashCode(callSuper = true)
 @Component
 @Data
 @AllArgsConstructor
-public class Charge implements Ability {
+public class Charge extends Ability {
 
     private final String name = "Charge";
     private final int damage = 20;
